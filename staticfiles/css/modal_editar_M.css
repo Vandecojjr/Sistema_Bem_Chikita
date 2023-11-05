@@ -1,0 +1,80 @@
+#Formulario_editar{
+    padding-top: 15%;
+}
+div.inputs{
+    height: 5em;
+    position: relative;
+    margin-top: 4%;
+    margin-bottom: 4%;
+}
+div.inputs input{
+    width: 50%;
+    height: 70%;
+    margin-right: 15%;
+    float: right;
+    background: #f8ebfa;
+    border: 2px #f082ff solid;
+    border-radius: 15px;
+    color: #f082ff;
+    text-align: center;
+}
+#in-Codigo:hover{
+    width: 50%;
+    height: 70%;
+    margin-right: 15%;
+    float: right;
+    background: #f8ebfa;
+    border: 2px #f082ff solid;
+    border-radius: 15px;
+    color: #f082ff;
+    text-align: center;
+    box-shadow: none;
+}
+div.inputs select{
+    width: 50%;
+    height: 70%;
+    margin-right: 15%;
+    float: right;
+    background: #f8ebfa;
+    border: 2px #f082ff solid;
+    border-radius: 15px;
+    color: #f082ff;
+    text-align: center;
+}
+div.inputs input::placeholder{
+    color: #f082ff;
+    position: absolute;
+    right: 40%;
+}
+div.inputs input:hover{
+    background: #fff;
+    box-shadow: 0 3px 4px #f082ff;
+}
+div.inputs input:focus{
+    background: #fff;
+    box-shadow: 0 3px 4px #f082ff;
+    outline: none;
+}
+div.inputs label{
+    color: #f082ff;
+    margin-left: 10%;
+    position: absolute;
+    top: 30%;
+}
+
+#bt-cadastrar{
+    background: #f082ff;
+    width: 100%;
+    height: 5%;
+    position: absolute;
+    border: none;
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    bottom: 0;
+    color: #fff;
+}
+#bt-cadastrar:hover{
+    background: #fff;
+    color: #f082ff;
+    box-shadow: 0 -2px 5px 0 #f082ff;
+}

@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {background: rgb(255, 255, 255);}
+nav {
+    background: rgb(243, 214, 241);
+    display: flex;
+    align-items: center;
+    border-bottom:4px solid;
+    border-bottom-color:rgb(238, 97, 226) ;
+    box-shadow: 1px 0px 1.2px 0px #000000;
+}
+body nav ul li a {
+    display: block;
+    padding: 25px 20px; 
+    background: rgb(243, 214, 241);
+    text-decoration: none;
+    color:rgb(238, 97, 226);
+    transition:background 1s;
+    text-transform: uppercase;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.a-1 {
+    background: white;
+    }
+
+.b-1 {
+    background: white;
+    }
+
+nav a:hover {
+    color:rgb(57, 203, 248);
+    
+}
+nav ul {
+    position:relative;
+    display: flex;
+    width: 100%;
+    float:left;
+    padding: 0px;
+}
+#div-logo {
+    width: 10%;
+    height: 69px;
+    background: rgb(243, 214, 241);
+    float: right;
+    border-bottom:4px solid;
+    border-bottom-color:rgb(238, 97, 226) ;
+}
+li {
+    display: inline;
+}
+
+.logo {
+    float: right;
+    width: 150px;
+    height: 30px;
+    align-items: center;
+    padding: 5px;
+    
+    margin-top: 8%;
+    margin-right: 5%;
+}
+
+.cad_prima {
+    width: 50%;
+    height: 780px;
+    background: rgb(253, 229, 248);
+    margin-top: 40px;
+    margin-left: 25%;
+    border-radius: 15px;
+    box-shadow: 0px 0px 4px 5px rgba(0, 0, 0, 0.2) ;
+}
+.form-cad {
+    border: 1px rgb(238, 97, 226) solid;
+    border-radius: 10px;
+}
+.cad_prima h1 {
+    font-family:'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 2.3em;
+    color: rgb(238, 97, 226);
+    border: 1px rgb(238, 97, 226) solid;
+    border-radius: 10px;
+    padding-top: 6px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+
+} 
+
+.in-nome{
+    width: 70%; 
+    margin-left: 15%;
+    height: 15px;
+    margin-bottom: 50px;
+}
+.inp {
+    width: 80%;
+    float: right;
+    height: 40px;
+    border-bottom-color: rgb(238, 97, 226);
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 5px;
+}
+table{
+    background: red;
+}
