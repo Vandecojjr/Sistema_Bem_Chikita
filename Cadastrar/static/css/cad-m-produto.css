@@ -1,0 +1,45 @@
+.scrollable-table {
+    width: 800px; /* Largura desejada da tabela */
+    height: 400px;
+    overflow: auto; /* Adiciona barras de rolagem quando o conteúdo excede as dimensões */
+}
+/* Estilos para navegadores WebKit (Chrome, Safari) */
+.scrollable-table::-webkit-scrollbar {
+    width: 5px; /* Largura do scrollbar */
+    display: auto;
+}
+
+.scrollable-table::-webkit-scrollbar-thumb {
+    background-color: #f082ff; /* Cor de fundo do thumb */
+    border-radius: 15px;
+}
+
+.scrollable-table::-webkit-scrollbar-track {
+    background-color: #ffff; /* Cor de fundo da trilha */
+    border-radius: 10px;
+}
+
+.tabela {
+    border-radius: 10px;
+}
+#tabela-1 {
+    width: 100%;    
+    border-radius: 10px;
+}
+.tabela th {
+    color: white;
+    padding: 15px;
+    border: 1px solid #f082ff;
+    border-radius: 10px;
+    background: #f082ff;
+}
+.tabela-2 {
+    border-radius: 10px;
+}
+.tabela-2 th {
+    color: white;
+    padding: 15px;
+    border: 1px solid #f082ff;
+    border-radius: 10px;
+    background: #f082ff;
+}

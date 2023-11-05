@@ -1,0 +1,154 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bem Chikita</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static 'CSS/bar.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/corpo.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/modal-prod.css' %}">
+    
+</head>
+<body>
+    <nav class="menu-lateral">
+        <div class="btn-expandir">
+            <i class="bi bi-list-nested" id="btn-exp"></i>
+        </div>
+        <ul id="bar-ul">
+            <li class="item-menu" >
+                <a href="{% url 'index' %}">
+                    <span class="icon"><i class="bi bi-house-fill"></i></span>
+                    <span class="txt-link">Inicio</span>
+                </a>
+
+            </li>
+            <li class="item-menu">
+                <a href="#">
+                    <span class="icon"><i class="bi bi-currency-dollar"></i></span>
+                    <span class="txt-link">Venda</span>
+                </a>
+
+            </li>
+            <li class="item-menu ativo">
+                <a href="{% url 'produto' %}">
+                    <span class="icon"><i class="bi bi-box2-heart"></i></span>
+                    <span class="txt-link">Produtos</span>
+                </a>
+
+            </li>
+            <li class="item-menu">
+                <a href="#">
+                    <span class="icon"><i class="bi bi-person-circle"></i></span>
+                    <span class="txt-link">Conta</span>
+                </a>
+
+            </li>
+            <li class="item-menu">
+                <a href="#">
+                    <span class="icon"><i class="bi bi-gear"></i></span>
+                    <span class="txt-link">Configurações</span>
+                </a>
+
+            </li>
+        </ul>
+    </nav>
+    <div id="aba-prod">
+        <dialog id="modal-material" class="modal-produto" style="height: 100%; top: 2%;">
+            <form action="{% url 'produto' %}" id="Formulario" method="post" autocomplete="off" style="padding-top: 5%;">
+                {% csrf_token %}
+                <div class="inputs">
+                    <label for="in-Codigo">CODIGO</label>
+                    <input type="text" id="in-Codigo" name="Codigo" disabled="" >
+                </div>
+
+                <div class="inputs">
+                    <label for="in-nome">NOME</label>
+                    <input type="text" id="in-nome" name="Nome" placeholder="Nome do material" >
+                </div>
+            
+                <div class="inputs">
+                    <label for="in-descricao">DESCRIÇÂO</label>
+                    <input type="text" id="in-descricao" name="descricao" placeholder="Descrição do material">
+                </div>
+                <div class="inputs">
+                    <label for="in-u_medida">Valor Automatico?</label>
+                    <select name="precoAutomatico" id="in-u_medida">
+                        <option value="sim">Sim</option>
+                        <option value="nao">Não</option>
+                    </select>
+                    <!--<input type="text" id="in-u_medida" name="u_medida" placeholder="Unidade de medida">-->
+                </div>
+                <div class="inputs">
+                    <label for="in-valor">VALOR</label>
+                    <input type="text" id="in-valor" name="valor" placeholder="Valor do material">
+                </div>
+                <div class="inputs">
+                    <label for="in-u_medida">porc.Padrão?</label>
+                    <select name="porcemAutomatico" id="in-u_medida">
+                        <option value="sim">Sim</option>
+                        <option value="nao">Não</option>
+                    </select>
+                </div>
+                <div class="inputs">
+                    <label for="in-valor">Porc.Lucro</label>
+                    <input type="text" id="in-valor" name="%" placeholder="Porc.Lucro">
+                </div>
+                    <button id="bt-cadastrar" form="Formulario">
+                        CADASTRAR
+                    </button>  
+            </form>
+        </dialog>
+        <h1 id="h1-produtos">Produtos</h1>
+        <a href="{% url 'Mprima' %}" id="M_prima">MATERIA PRIMA</a>
+        <button id="Material_cad">
+            Cadastrar
+        </button>
+        <div class="modal" id="myModal">
+            <div class="modal-content">          
+            </div>
+        </div>
+            <div>
+            <table id="t-mprima">
+                <thead>
+                <tr>
+                    <th id="t-id">Id</th>
+                    <th id="t-nome">Nome</th>
+                    <th id="t-desc">Descrição</th>
+                    <th id="t-valor">Valor</th>
+                    <th id="t-perc">perc.Lucro</th>
+                    <th class="t-icons"></th>
+                    <th class="t-icons"></th>
+                </tr>       
+                </thead>
+                {% for produto in produtos %}
+                <tr>
+                    <td class="t-linha">{{produto.id}}</td>
+                    <td class="t-linha">{{produto.nome}}</td>
+                    <td class="t-linha">{{produto.descricao}}</td>
+                    <td class="t-linha">R${{produto.preco}}</td>
+                    <td class="t-linha">{{produto.porcemLucro}}%</td>
+                    <td class="td-icon">
+                        <button class="t-icon bt_editar editar-item-btn" data-item-id="{{produto.id}}"><span><i class="bi bi-plus-circle"></i></span></button>
+                    </td>
+                    <td class="td-icon">
+                        <a href="#" class="t-icon"><span><i class="bi bi-x-circle-fill"></i></span></a>
+                    </td>
+                    <td class="td-icon">
+                        <a href="#" class="t-icon"><span><i class="bi bi-pen"></i></span></a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+    <script src="{% static 'js/popups.js' %}"></script>
+    <script src="{% static 'js/menu.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{% static 'js/modal-prod.js' %}"></script>
+
+    
+</body>
+</html>

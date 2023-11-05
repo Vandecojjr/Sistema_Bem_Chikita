@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'CSS/modal_editar_M.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+<body> 
+    <div  role="document">
+      <form action="{% url 'editarM' item.id %}" id="Formulario_editar" method="post" autocomplete="off">
+        {% csrf_token %}
+        <div class="inputs">
+            <label for="in-Codigo">CODIGO</label>
+            <input type="text" id="in-Codigo" name="Codigo" value="{{item.id}}" disabled="">
+        </div>
+
+        <div class="inputs">
+            <label for="in-nome">NOME</label>
+            <input type="text" id="in-nome" name="Nome" placeholder="Nome do material" value="{{item.nome}}">
+        </div>
+    
+        <div class="inputs">
+            <label for="in-descricao">DESCRIÇÂO</label>
+            <input type="text" id="in-descricao" name="descricao" placeholder="Descrição do material" value="{{item.descricao}}">
+        </div>
+
+        <div class="inputs">
+            <label for="in-u_medida">Un. MEDIDA</label>
+            <select name="u_medida" id="in-u_medida">
+                <option value="Un">Un</option>
+                <option value="Cm">Cm</option>
+            </select>
+            <!--<input type="text" id="in-u_medida" name="u_medida" placeholder="Unidade de medida" value="{{item.u_medida}}">-->
+        </div>
+
+        <div class="inputs">
+            <label for="in-valor">VALOR</label>
+            <input type="text" id="in-valor" name="valor" placeholder="Valor do material" value="{{item.preco}}">
+        </div>
+
+            <button id="bt-cadastrar" form="Formulario_editar">
+                salvar
+            </button>  
+    </form>
+    </div> 
+<script>
+  $(function() {
+    $("#campo_de_entrada").autocomplete({
+      source: "edtarM",  // URL para buscar cidades
+    });
+  });
+</script>
+
+</body>
+</html>
+

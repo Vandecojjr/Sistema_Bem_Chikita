@@ -1,0 +1,162 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bem Chikita</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static 'CSS/bar.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/corpo.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <nav class="menu-lateral">
+        <div class="btn-expandir">
+            <i class="bi bi-list-nested" id="btn-exp"></i>
+        </div>
+        <ul id="bar-ul">
+            <li class="item-menu" >
+                <a href="{% url 'index' %}">
+                    <span class="icon"><i class="bi bi-house-fill"></i></span>
+                    <span class="txt-link">Inicio</span>
+                </a>
+
+            </li>
+            <li class="item-menu">
+                <a href="#">
+                    <span class="icon"><i class="bi bi-currency-dollar"></i></span>
+                    <span class="txt-link">Venda</span>
+                </a>
+
+            </li>
+            <li class="item-menu ativo">
+                <a href="{% url 'produto' %}">
+                    <span class="icon"><i class="bi bi-box2-heart"></i></span>
+                    <span class="txt-link">Produtos</span>
+                </a>
+
+            </li>
+            <li class="item-menu">
+                <a href="#">
+                    <span class="icon"><i class="bi bi-person-circle"></i></span>
+                    <span class="txt-link">Conta</span>
+                </a>
+
+            </li>
+            <li class="item-menu">
+                <a href="#">
+                    <span class="icon"><i class="bi bi-gear"></i></span>
+                    <span class="txt-link">Configurações</span>
+                </a>
+
+            </li>
+        </ul>
+    </nav>
+    <div id="aba-prod">
+        <h1 id="h1-produtos">Materia Prima</h1>
+        <button id="Material_cad">
+            Cadastrar
+        </button>
+        <dialog id="modal-material">
+            <form action="{% url 'Mprima' %}" id="Formulario" method="post" autocomplete="off">
+                {% csrf_token %}
+                <div class="inputs">
+                    <label for="in-Codigo">CODIGO</label>
+                    <input type="text" id="in-Codigo" name="Codigo" disabled="" >
+                </div>
+
+                <div class="inputs">
+                    <label for="in-nome">NOME</label>
+                    <input type="text" id="in-nome" name="Nome" placeholder="Nome do material" >
+                </div>
+            
+                <div class="inputs">
+                    <label for="in-descricao">DESCRIÇÂO</label>
+                    <input type="text" id="in-descricao" name="descricao" placeholder="Descrição do material">
+                </div>
+
+                <div class="inputs">
+                    <label for="in-u_medida">Un. MEDIDA</label>
+                    <select name="u_medida" id="in-u_medida">
+                        <option value="Un">Un</option>
+                        <option value="Cm">Cm</option>
+                    </select>
+                    <!--<input type="text" id="in-u_medida" name="u_medida" placeholder="Unidade de medida">-->
+                </div>
+
+                <div class="inputs">
+                    <label for="in-valor">VALOR</label>
+                    <input type="text" id="in-valor" name="valor" placeholder="Valor do material">
+                </div>
+
+                    <button id="bt-cadastrar" form="Formulario">
+                        CADASTRAR
+                    </button>  
+            </form>
+        </dialog>
+        <table id="t-mprima">
+            <thead>
+            <tr>
+                <th id="t-id">Id</th>
+                <th id="t-nome">Nome</th>
+                <th id="t-desc">Descrição</th>
+                <th id="t-un">Un.Medida</th>
+                <th id="t-valor">Valor</th>
+                <th class="t-icons"></th>
+                <th class="t-icons"></th>
+            </tr>       
+            </thead>
+            {% for material in Mprima %}
+            <tr>
+                <td class="t-linha">{{material.id}}</td>
+                <td class="t-linha">{{material.nome}}</td>
+                <td class="t-linha">{{material.descricao}}</td>
+                <td class="t-linha">{{material.u_medida}}</td>
+                <td class="t-linha">R${{material.preco}}</td>
+                <td class="td-icon">
+                    <button class="t-icon bt_editar editar-item-btn" data-item-id="{{material.id}}"><span><i class="bi bi-pen"></i></span></button>
+                </td>
+                <td class="td-icon">
+                    <a href="{% url 'deleteM' material.id %}" class="t-icon"><span><i class="bi bi-x-circle-fill"></i></span></a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <dialog id="Dialog_edit">
+        <div id="conteudo-dialog"></div>
+        <button id="fecharModal">voltar</button>
+    </dialog>
+
+    <script src="{% static 'js/popups.js' %}"></script>
+    <script src="{% static 'js/menu.js' %}"></script>
+    
+    <script>
+        $(document).ready(function () {
+            // Função para abrir o modal de edição
+            function abrirModalEdicao(itemID) {
+                $.get('{% url "editarM" 0 %}' + itemID, function (data) {
+                    var dialog = document.getElementById('Dialog_edit');
+                    $('#conteudo-dialog').html(data);
+                    dialog.showModal();
+                });
+            }
+    
+            // Quando o botão "Editar" é clicado, chama a função de abrir o modal de edição
+            $(document).on('click', '.editar-item-btn', function () {
+                var itemID = $(this).data('item-id');
+                abrirModalEdicao(itemID);
+            });
+    
+            // Fechar o modal ao clicar no botão "Fechar"
+            $('#fecharModal').on('click', function () {
+                var dialog = document.getElementById('Dialog_edit');
+                dialog.close();
+            });
+        });
+    </script>
+
+</body>
+</html>

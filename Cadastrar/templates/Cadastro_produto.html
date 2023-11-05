@@ -1,0 +1,176 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'CSS/cad-m-produto.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    {% csrf_token %}
+    <div>
+        <h1 style="border: solid 1px #f082ff; color: #f082ff; border-radius: 2rem; margin-bottom: 15px; margin-top: 5px;">Cadastro de materiais do produto {{produto}}</h1>
+        <div class="scrollable-table" style=" border: 2px solid #f082ff; border-radius: 10px; margin-left: 70px; width: 631px; height: 300px;">
+            <div style="position: fixed;">
+                <h2>Todos os materiais</h2>
+                <table class="tabela-2" style="width:627px;">
+                    <tr>
+                        <th style="width:60%;">nome</th>
+                        <th style="width: 20%;">quantidade</th>
+                        <th>adicinar</th>
+                    </tr>
+                </table>
+            </div>
+            <div style="margin-top: 15%;">
+                <table class="tabela" style="width: 100%; border: none; border-radius: 0px;">
+                    {% for i in Mprima %}
+                    <tr style="border-bottom:solid 1px #f082ff;">
+                        <td style="width: 60%; color: #f082ff; text-align: center; ">{{i.nome}}</td>
+                        <td style="width: 20%; color: #f082ff; text-align: center;"><input type="number" id="in-quant" style="width: 50px; border-color:#f082ff; border-radius: 5px;"></td>
+                        <td><button class="seu-botao-ou-elemento" data-item-id="{{i.id}}" style="background:#f082ff; color: white;text-decoration: none; border-radius:5px; width: 35px;">sim</button></td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+        <div style="margin:15px ;">
+            <h1><i class="bi bi-arrow-down"></i></h1>
+        </div>
+        <div class="scrollable-table" style="border: 2px solid #f082ff; border-radius: 10px; margin-left: 70px; width: 630px; height: 300px;">
+            <div style="position: fixed;">
+                <h2>Materiais adicionados ao produto</h2>
+                <table class="tabela-2" style="width:626px;">
+                    <thead >
+                        <th style="width: 60%;">nome</th>
+                        <th style="width: 20%;">Quantidade</th>
+                        <th>Remover</th>
+                    </thead>
+                </table>
+            </div>
+            <div style="margin-top: 15%;">
+                <table id="tabela-dados" style="width: 626px;">
+                        <tr>
+                            <td style="width: 80px;"></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div id="lista-produtos">
+        
+    </div>
+    <a href="{% url 'produto' %}" id="fecharModal">voltar</a>
+    <script>
+        $(document).ready(function() {
+            $(".seu-botao-ou-elemento").click(function() {
+                var quantidadeInput = $(this).closest('tr').find('#in-quant');
+                // Captura o valor do campo de entrada.
+                var valor1 = quantidadeInput.val()
+                var valor2 = $(this).data('item-id');
+                var valor3 = "{{produto}}";
+    
+                $.ajax({
+                    url: 'Cadastro_produto/{{produto}}',  // Substitua '/sua_view/' pela URL real da sua view.
+                    type: 'POST',  // Você pode usar 'GET' ou 'POST' dependendo das suas necessidades.
+                    //headers: {
+                                //'X-CSRFToken': getCookie('csrftoken'),  // Substitua 'csrftoken' pelo nome real do cookie CSRF.
+                           //  },
+                    data: {
+                        // Envie o valor do campo de entrada para a view.
+                        chave1: valor1,
+                        chave2: valor2,  // Valor de valor2, se necessário.
+                        chave3: valor3,
+                    }, 
+                    success: function(data) {
+                        //var teste = data.teste
+                        //$("#tabela-dados tbody").empty();
+                        //for (var i = 0; i < teste.length; i++) {
+                           // $("#tabela-dados tbody").append(
+                               // "<tr><td>" + teste[i].idMaterial + "</td><td>" + teste[i].idPoduto + "</td><td>" + teste[i].qunat + "</td><td><button>teste</button></td></tr>"
+                               // );
+                       // }
+                    }
+                });
+            });
+        });
+       
+        $(document).ready(function() {
+            // Função para buscar e exibir os dados dos produtos
+            var x = "{{produto}}"
+            function carregarProdutos() {
+                $.ajax({
+                    url:'Cadastro_produto/'+ x +'/0',  // Atualize a URL para corresponder à sua view Django.
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(data) {
+                        var listaProdutos = data.material;
+                        var listaHtml = ''
+    
+                        // Construa a lista HTML dos produtos
+                        $("#tabela-dados tbody").empty();
+                        for (var i = 0; i < listaProdutos.length; i++) {
+                            var deletar = "deletar-mprima-produto/"+ listaProdutos[i].id;
+                            $("#tabela-dados tbody").append(
+                                "<tr><td style='width: 60%; color: #f082ff; text-align: center;'>" 
+                                    + listaProdutos[i].nome + 
+                                    "</td><td style='width: 20%; color: #f082ff; text-align: center;'>" 
+                                        + listaProdutos[i].qunat + 
+                                        "</td><td><a href='"+ deletar +
+                                            "' class='deletar-link' style='background:#f082ff; color: white;text-decoration: none; border-radius:5px; padding: 2px;'>Sim</a></td></tr>"
+                                );
+                               
+                            //listaHtml += '<p>' + listaProdutos[i].idMaterial + '</p>';
+                        }   
+                        function getCookie(name) {
+                            var cookieValue = null;
+                            if (document.cookie && document.cookie !== '') {
+                                var cookies = document.cookie.split(';');
+                                for (var i = 0; i < cookies.length; i++) {
+                                    var cookie = $.trim(cookies[i]);
+                                    // Verifica se o cookie começa com o nome desejado
+                                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                                        break;
+                                    }
+                                }
+                            }
+                            return cookieValue;
+                        } 
+                        $(".deletar-link").on("click", function(event) {
+                                event.preventDefault(); // Impede o comportamento padrão do link
+
+                                var url = $(this).attr("href"); // Obtém a URL do link clicado
+
+                                $.ajax({
+                                    url: url,
+                                    type: "DELETE", // Especifique o método DELETE
+                                    headers: {
+                                    "X-CSRFToken": getCookie("csrftoken") // Certifique-se de criar a função getCookie para obter o token CSRF
+                                        },
+                                    success: function(data) {
+                                        // Lidar com a exclusão bem-sucedida, se necessário
+                                        // Por exemplo, atualizar a lista de produtos
+                                        carregarProdutos();
+                                    }
+                                    
+                                    });
+                        });
+                    }
+
+                });
+            }
+    
+            // Chame a função para carregar os produtos quando a página carregar
+            carregarProdutos();
+    
+            // Defina um intervalo para atualizar os produtos periodicamente (opcional)
+            setInterval(carregarProdutos, 200);  // Atualize a cada 5 segundos, por exemplo
+        });
+    </script>
+</body>
+</html>
