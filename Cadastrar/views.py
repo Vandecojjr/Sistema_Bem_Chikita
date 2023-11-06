@@ -88,6 +88,12 @@ def Delete_material(request, id):
     del_materal.delete()
     return redirect('Mprima')
 
+
+def deletar_produto(request, id):
+    del_produto = prodCad.objects.get(id=id)
+    del_produto.delete()
+    return redirect('produto')
+
 def editarMprima(request, item_id):
 
     item = Materia_prima.objects.get(id=item_id)
@@ -105,6 +111,37 @@ def editarMprima(request, item_id):
         item.save()
         return redirect('Mprima')
     return render(request, 'editar_material.html',context)
+
+def editarProduto(request, id):
+
+    item = prodCad.objects.get(id=id)
+    context = {
+        'item':item
+    }
+    if str(request.method) == 'POST':
+
+        tratando_preco = request.POST.get('valor')
+        if tratando_preco == '':
+            tratando_preco = 0
+        else:
+            tratando_preco = tratando_preco.replace(",",".")
+
+        tratando_porc = request.POST.get('%')
+        if tratando_porc == '':
+            tratando_porc = 0
+        else:
+            tratando_porc = tratando_porc.replace(",",".")
+
+        item.nome = request.POST.get('Nome')
+        item.descricao = request.POST.get('descricao')
+        item.preco = tratando_preco
+        item.precoAutomatico = request.POST.get('precoAutomatico')
+        item.porcemPadrao = request.POST.get('porcemAutomatico')
+        item.porcemLucro = tratando_porc
+        item.save()
+        return redirect('produto')
+    
+    return render(request, 'editar_produto.html',context)
 
 @csrf_exempt
 def cad_M_produto(request, id_Produto):

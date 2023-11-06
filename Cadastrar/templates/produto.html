@@ -79,7 +79,6 @@
                         <option value="sim">Sim</option>
                         <option value="nao">Não</option>
                     </select>
-                    <!--<input type="text" id="in-u_medida" name="u_medida" placeholder="Unidade de medida">-->
                 </div>
                 <div class="inputs">
                     <label for="in-valor">VALOR</label>
@@ -134,22 +133,50 @@
                         <button class="t-icon bt_editar editar-item-btn" data-item-id="{{produto.id}}"><span><i class="bi bi-plus-circle"></i></span></button>
                     </td>
                     <td class="td-icon">
-                        <a href="#" class="t-icon"><span><i class="bi bi-x-circle-fill"></i></span></a>
+                        <a href="{% url 'deleteP' produto.id %}" class="t-icon"><span><i class="bi bi-x-circle-fill"></i></span></a>
                     </td>
                     <td class="td-icon">
-                        <a href="#" class="t-icon"><span><i class="bi bi-pen"></i></span></a>
+                        <button class="t-icon bt_editar editar-produto-btn" data-item-id="{{produto.id}}"><span><i class="bi bi-pen"></i></span></button>
                     </td>
                 </tr>
                 {% endfor %}
             </table>
         </div>
     </div>
+    <dialog id="Dialog_edit" style="height: 1010px; top: 10px;">
+        <div id="conteudo-dialog">
+            <button id="fecharModal">voltar</button>
+        </div>  
+    </dialog>
 
     <script src="{% static 'js/popups.js' %}"></script>
     <script src="{% static 'js/menu.js' %}"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{% static 'js/modal-prod.js' %}"></script>
-
+    <script>
+        $(document).ready(function () {
+            // Função para abrir o modal de edição
+            function abrirModalEdicao(itemID) {
+                $.get('{% url "editarP" 0 %}' + itemID, function (data) {
+                    var dialog = document.getElementById('Dialog_edit');
+                    $('#conteudo-dialog').html(data);
+                    dialog.showModal();
+                });
+            }
+    
+            // Quando o botão "Editar" é clicado, chama a função de abrir o modal de edição
+            $(document).on('click', '.editar-produto-btn', function () {
+                var itemID = $(this).data('item-id');
+                abrirModalEdicao(itemID);
+            });
+    
+            // Fechar o modal ao clicar no botão "Fechar"
+            $('#fecharModal').on('click', function () {
+                var dialog = document.getElementById('Dialog_edit');
+                dialog.close();
+            });
+        });
+    </script>
     
 </body>
 </html>

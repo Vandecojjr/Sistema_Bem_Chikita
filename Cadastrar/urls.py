@@ -9,5 +9,7 @@ urlpatterns = [
     path('editar_material/<int:item_id>', views.editarMprima, name='editarM'),
     path('Cadastro_produto/<int:id_Produto>', views.cad_M_produto, name='cadMproduto'),
     path('Cadastro_produto/<int:id_Produto>/<int:x>', views.sua_view, name='teste'),
-    path('deletar-mprima-produto/<int:id>', views.deletarMprimaProduto)
+    path('deletar-mprima-produto/<int:id>', views.deletarMprimaProduto),
+    path('deletar-produto/<int:id>', views.deletar_produto, name='deleteP'),
+    path('editar_produto/<int:id>', views.editarProduto, name='editarP'),
 ]

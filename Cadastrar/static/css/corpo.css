@@ -1,262 +1,262 @@
-#aba-prod{
-    width: 50%;
-    height: 98%;
-    box-shadow: 0 0 0 2px #f082ff;
-    margin-left: 25%;
-    margin-top: 0.5%;
-    border-radius: 2rem;
-    position: absolute;
+    #aba-prod{
+        width: 50%;
+        height: 98%;
+        box-shadow: 0 0 0 2px #f082ff;
+        margin-left: 25%;
+        margin-top: 0.5%;
+        border-radius: 2rem;
+        position: absolute;
 
-}
-#h1-produtos{
-    background: #f082ff;
-    color: #fff;
-    height: 8%;
-    text-align: center;
-    padding-top: 2%;
-    box-shadow: 0 3px  #f082ff;
-    border-top-right-radius: 2rem;
-    border-top-left-radius: 2rem; 
-}
+    }
+    #h1-produtos{
+        background: #f082ff;
+        color: #fff;
+        height: 8%;
+        text-align: center;
+        padding-top: 2%;
+        box-shadow: 0 3px  #f082ff;
+        border-top-right-radius: 2rem;
+        border-top-left-radius: 2rem; 
+    }
 
-/*formulario*/
-#Formulario{
-    padding-top: 15%;
-}
-div.inputs{
-    height: 5em;
-    position: relative;
-    margin-top: 4%;
-    margin-bottom: 4%;
-}
-div.inputs input{
-    width: 50%;
-    height: 70%;
-    margin-right: 15%;
-    float: right;
-    background: #f8ebfa;
-    border: 2px #f082ff solid;
-    border-radius: 15px;
-    color: #f082ff;
-    text-align: center;
-}
-div.inputs select{
-    width: 50%;
-    height: 70%;
-    margin-right: 15%;
-    float: right;
-    background: #f8ebfa;
-    border: 2px #f082ff solid;
-    border-radius: 15px;
-    color: #f082ff;
-    text-align: center;
-}
-div.inputs input::placeholder{
-    color: #f082ff;
-    position: absolute;
-    right: 40%;
-}
-div.inputs input:hover{
-    background: #fff;
-    box-shadow: 0 3px 4px #f082ff;
-}
-#in-Codigo:hover{
-    width: 50%;
-    height: 70%;
-    margin-right: 15%;
-    float: right;
-    background: #f8ebfa;
-    border: 2px #f082ff solid;
-    border-radius: 15px;
-    color: #f082ff;
-    text-align: center;
-    box-shadow: none;
-}
-div.inputs input:focus{
-    background: #fff;
-    box-shadow: 0 3px 4px #f082ff;
-    outline: none;
-}
-div.inputs label{
-    color: #f082ff;
-    margin-left: 10%;
-    position: absolute;
-    top: 30%;
-}
+    /*formulario*/
+    #Formulario{
+        padding-top: 15%;
+    }
+    div.inputs{
+        height: 5em;
+        position: relative;
+        margin-top: 4%;
+        margin-bottom: 4%;
+    }
+    div.inputs input{
+        width: 50%;
+        height: 70%;
+        margin-right: 15%;
+        float: right;
+        background: #f8ebfa;
+        border: 2px #f082ff solid;
+        border-radius: 15px;
+        color: #f082ff;
+        text-align: center;
+    }
+    div.inputs select{
+        width: 50%;
+        height: 70%;
+        margin-right: 15%;
+        float: right;
+        background: #f8ebfa;
+        border: 2px #f082ff solid;
+        border-radius: 15px;
+        color: #f082ff;
+        text-align: center;
+    }
+    div.inputs input::placeholder{
+        color: #f082ff;
+        position: absolute;
+        right: 40%;
+    }
+    div.inputs input:hover{
+        background: #fff;
+        box-shadow: 0 3px 4px #f082ff;
+    }
+    #in-Codigo:hover{
+        width: 50%;
+        height: 70%;
+        margin-right: 15%;
+        float: right;
+        background: #f8ebfa;
+        border: 2px #f082ff solid;
+        border-radius: 15px;
+        color: #f082ff;
+        text-align: center;
+        box-shadow: none;
+    }
+    div.inputs input:focus{
+        background: #fff;
+        box-shadow: 0 3px 4px #f082ff;
+        outline: none;
+    }
+    div.inputs label{
+        color: #f082ff;
+        margin-left: 10%;
+        position: absolute;
+        top: 30%;
+    }
 
-#bt-cadastrar{
-    background: #f082ff;
-    width: 100%;
-    height: 5%;
-    position: absolute;
-    border: none;
-    border-bottom-left-radius: 2rem;
-    border-bottom-right-radius: 2rem;
-    bottom: 0;
-    color: #fff;
-}
-#bt-cadastrar:hover{
-    background: #fff;
-    color: #f082ff;
-    box-shadow: 0 -2px 5px 0 #f082ff;
-}
+    #bt-cadastrar{
+        background: #f082ff;
+        width: 100%;
+        height: 5%;
+        position: absolute;
+        border: none;
+        border-bottom-left-radius: 2rem;
+        border-bottom-right-radius: 2rem;
+        bottom: 0;
+        color: #fff;
+    }
+    #bt-cadastrar:hover{
+        background: #fff;
+        color: #f082ff;
+        box-shadow: 0 -2px 5px 0 #f082ff;
+    }
 
-#modal-material{
-    position: absolute;
-    top: 5%;
-    left: 30%;
-    width: 40%;
-    height: 90%;
-    border: none;
-    border-radius: 2rem;
-    box-shadow: 0 -1px 2rem  #f082ff;
+    #modal-material{
+        position: absolute;
+        top: 5%;
+        left: 30%;
+        width: 40%;
+        height: 90%;
+        border: none;
+        border-radius: 2rem;
+        box-shadow: 0 -1px 2rem  #f082ff;
 
-}
-#M_prima{
-    float: right;
-    padding-top: 5px;
-    background: #f082ff;
-    margin: 15px;
-    width: 150px;
-    height: 30px;
-    color: #fff;
-    text-decoration: none;
-    text-align: center;
-    border-radius: 15px;
-}
-#M_prima:hover{
-    box-shadow: 0 -1px 1rem 3px #f082ff;
-    background: #fff;
-    color: #f082ff;
-}
-#t-mprima{
-    margin: 50px;
-    border: 2px solid #f082ff;
-    border-radius: 10px;
-    width: 90%;
-}
-#t-mprima #t-id{
-    color: white;
-    padding: 15px;
-    border: 1px solid #f082ff;
-    border-radius: 10px;
-    background: #f082ff;
+    }
+    #M_prima{
+        float: right;
+        padding-top: 5px;
+        background: #f082ff;
+        margin: 15px;
+        width: 150px;
+        height: 30px;
+        color: #fff;
+        text-decoration: none;
+        text-align: center;
+        border-radius: 15px;
+    }
+    #M_prima:hover{
+        box-shadow: 0 -1px 1rem 3px #f082ff;
+        background: #fff;
+        color: #f082ff;
+    }
+    #t-mprima{
+        margin: 50px;
+        border: 2px solid #f082ff;
+        border-radius: 10px;
+        width: 90%;
+    }
+    #t-mprima #t-id{
+        color: white;
+        padding: 15px;
+        border: 1px solid #f082ff;
+        border-radius: 10px;
+        background: #f082ff;
 
-}
-#t-mprima #t-nome{
-    color: white;
-    padding: 15px;
-    padding-left:60px ;
-    padding-right:60px;
-    border: 1px solid #f082ff;
-    border-radius: 10px;
-    background: #f082ff;
-}
-#t-mprima #t-desc{
-    color: white;
-    padding: 15px;
-    padding-left:80px ;
-    padding-right:80px;
-    border: 1px solid #f082ff;
-    border-radius: 10px;
-    background: #f082ff;
-}
-#t-mprima #t-un{
-    color: white;
-    padding: 15px;
-    border: 1px solid #f082ff;
-    border-radius: 10px;
-    background: #f082ff;
-}
-#t-mprima #t-valor{
-    color: white;
-    padding: 15px;
-    border: 1px solid #f082ff;
-    border-radius: 10px;
-    background: #f082ff;
-}
-#t-mprima #t-perc{
-    color: white;
-    padding: 15px;
-    border: 1px solid #f082ff;
-    border-radius: 10px;
-    background: #f082ff;
-}
-#t-mprima td{
-    color: #f082ff;
-    text-align: center;
-}
-.bt_editar{
-    background: none;
-    border: none;
-    outline: none;
-}
-.t-icon span i{
-    color: white;
-}
-.t-icons{
-    padding: 15px;
-}
-#t-mprima .t-linha{
-    border-bottom:1px solid #f082ff;
-    padding: 10px;
-}
-#t-mprima .td-icon{
-    background: #f082ff;
-    border-radius: 20px;
-    padding: 10px;
-}
-#t-mprima .td-icon:hover{
-    background: white;
-    border-radius: 20px;
-    padding: 10px;
-    box-shadow: 0 0 3px #f082ff;
-}
-#t-mprima .td-icon:hover i{
-    color: #f082ff;
-}
-#Material_cad{
-    float: right;
-    padding-top: 5px;
-    background: #f082ff;
-    margin: 15px;
-    width: 150px;
-    height: 30px;
-    color: #fff;
-    text-decoration: none;
-    text-align: center;
-    border-radius: 15px;
-    border: #f082ff;
-    outline: none;
-}
-#Material_cad:hover{
-    box-shadow: 0 -1px 1rem 3px #f082ff;
-    background: #fff;
-    color: #f082ff;
-}
-#Dialog_edit{
-    position: absolute;
-    top: 5%;
-    left: 30%;
-    width: 40%;
-    height: 90%;
-    border: none;
-    border-radius: 2rem;
-    box-shadow: 0 -1px 2rem  #f082ff;
-}
-#fecharModal{
-    width:50px;
-    margin-left: 10px;
-    margin-top: 60px;
-    background: #f082ff;
-    color: #fff;
-    text-decoration: none;
-    text-align: center;
-    border-radius: 15px;
-    border: #f082ff;
-}
-#fecharModal:hover{
-    box-shadow: 0 -1px 1rem 3px #f082ff;
-    background: #fff;
-    color: #f082ff;
-}
+    }
+    #t-mprima #t-nome{
+        color: white;
+        padding: 15px;
+        padding-left:60px ;
+        padding-right:60px;
+        border: 1px solid #f082ff;
+        border-radius: 10px;
+        background: #f082ff;
+    }
+    #t-mprima #t-desc{
+        color: white;
+        padding: 15px;
+        padding-left:80px ;
+        padding-right:80px;
+        border: 1px solid #f082ff;
+        border-radius: 10px;
+        background: #f082ff;
+    }
+    #t-mprima #t-un{
+        color: white;
+        padding: 15px;
+        border: 1px solid #f082ff;
+        border-radius: 10px;
+        background: #f082ff;
+    }
+    #t-mprima #t-valor{
+        color: white;
+        padding: 15px;
+        border: 1px solid #f082ff;
+        border-radius: 10px;
+        background: #f082ff;
+    }
+    #t-mprima #t-perc{
+        color: white;
+        padding: 15px;
+        border: 1px solid #f082ff;
+        border-radius: 10px;
+        background: #f082ff;
+    }
+    #t-mprima td{
+        color: #f082ff;
+        text-align: center;
+    }
+    .bt_editar{
+        background: none;
+        border: none;
+        outline: none;
+    }
+    .t-icon span i{
+        color: white;
+    }
+    .t-icons{
+        padding: 15px;
+    }
+    #t-mprima .t-linha{
+        border-bottom:1px solid #f082ff;
+        padding: 10px;
+    }
+    #t-mprima .td-icon{
+        background: #f082ff;
+        border-radius: 20px;
+        padding: 10px;
+    }
+    #t-mprima .td-icon:hover{
+        background: white;
+        border-radius: 20px;
+        padding: 10px;
+        box-shadow: 0 0 3px #f082ff;
+    }
+    #t-mprima .td-icon:hover i{
+        color: #f082ff;
+    }
+    #Material_cad{
+        float: right;
+        padding-top: 5px;
+        background: #f082ff;
+        margin: 15px;
+        width: 150px;
+        height: 30px;
+        color: #fff;
+        text-decoration: none;
+        text-align: center;
+        border-radius: 15px;
+        border: #f082ff;
+        outline: none;
+    }
+    #Material_cad:hover{
+        box-shadow: 0 -1px 1rem 3px #f082ff;
+        background: #fff;
+        color: #f082ff;
+    }
+    #Dialog_edit{
+        position: absolute;
+        top: 5%;
+        left: 30%;
+        width: 40%;
+        height: 90%;
+        border: none;
+        border-radius: 2rem;
+        box-shadow: 0 -1px 2rem  #f082ff;
+    }
+    #fecharModal{
+        width:50px;
+        margin-left: 10px;
+        margin-top: 60px;
+        background: #f082ff;
+        color: #fff;
+        text-decoration: none;
+        text-align: center;
+        border-radius: 15px;
+        border: #f082ff;
+    }
+    #fecharModal:hover{
+        box-shadow: 0 -1px 1rem 3px #f082ff;
+        background: #fff;
+        color: #f082ff;
+    }
